@@ -13,15 +13,12 @@ from dotenv import load_dotenv
 load_dotenv()
 token = os.getenv('TOKEN')
 #################################
-
 commandsAPI = commandsAPI()
 # wrapper / decorator
-
 message_lastseen = datetime.now()
 message2_lastseen = datetime.now()
 music = DiscordUtils.Music()
 elaina = commands.Bot(command_prefix=".",help_command=None)  #ตัวแปรนี้คือ = ตัวบอทของเรา
-
 game = discord.Game("Type .help")
     # wrapper / decorator ฟังก์ชั่นที่อยู่ในฟังก์ชั่น   
 @elaina.event
@@ -50,7 +47,6 @@ async def on_message(message):
         await elaina.logout()
     await elaina.process_commands(message)
         
-
 # ฟังก์ชั่นเล่นเพลง .p
 @elaina.command()
 async def play(ctx,* ,search: str):
@@ -70,16 +66,13 @@ async def pause(ctx):
 async def resume(ctx):
     await commandsAPI.resume(ctx)
 
-
 @elaina.command()
 async def leave(ctx):
     await commandsAPI.leave(ctx)
 
-
 @elaina.command()
 async def queue(ctx):
     await commandsAPI.queue(ctx)
-
 
 @elaina.command()
 async def skip(ctx):
